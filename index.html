@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>StaffSync - Employee Portal</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <a href="#content" class="skip-btn">Skip to main content</a>
+
+  <!-- Top Header -->
+  <header class="app-header">
+    <div class="logo">
+      <h2>StaffSync</h2>
+    </div>
+    <nav aria-label="User profile and actions">
+      <ul class="header-nav">
+        <li><button type="button" class="btn" id="openModalBtn">+ Add Employee</button></li>
+        <li><span class="user-pill">Admin</span></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="main-wrapper">
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar">
+      <nav aria-label="Main menu">
+        <ul class="nav-links">
+          <li><a href="#" class="active" aria-current="page">Dashboard</a></li>
+          <li><a href="#">Employees</a></li>
+          <li><a href="#">Departments</a></li>
+          <li><a href="#">Attendance</a></li>
+          <li><a href="#">Settings</a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main id="content" class="main-content" tabindex="-1">
+      
+      <!-- Metrics Cards -->
+      <section class="metrics-section" aria-labelledby="metrics-title">
+        <h3 id="metrics-title" class="section-title">Overview</h3>
+        <div class="cards-grid">
+          <article class="stat-card">
+            <h4>Total Employees</h4>
+            <p class="stat-number">148</p>
+          </article>
+          <article class="stat-card">
+            <h4>On Leave</h4>
+            <p class="stat-number">12</p>
+          </article>
+          <article class="stat-card">
+            <h4>New Joiners</h4>
+            <p class="stat-number">6</p>
+          </article>
+        </div>
+      </section>
+
+      <!-- Employee Table -->
+      <section class="table-section" aria-labelledby="table-title">
+        <div class="section-header">
+          <h3 id="table-title">Employee List</h3>
+        </div>
+
+        <div class="table-container">
+          <table>
+            <caption class="visually-hidden">Current company employees list</caption>
+            <thead>
+              <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Name</th>
+                <th scope="col">Department</th>
+                <th scope="col">Role</th>
+                <th scope="col">Status</th>
+                <th scope="col">Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">EMP-01</th>
+                <td>Rahul Sharma</td>
+                <td>Engineering</td>
+                <td>Frontend Developer</td>
+                <td><span class="tag tag-active">Active</span></td>
+                <td>
+                  <button type="button" class="btn-sm" aria-label="Edit Rahul Sharma">Edit</button>
+                </td>
+              </tr>
+              <tr>
+                <th scope="row">EMP-02</th>
+                <td>Ananya Verma</td>
+                <td>Design</td>
+                <td>UI/UX Designer</td>
+                <td><span class="tag tag-active">Active</span></td>
+                <td>
+                  <button type="button" class="btn-sm" aria-label="Edit Ananya Verma">Edit</button>
+                </td>
+              </tr>
+              <tr>
+                <th scope="row">EMP-03</th>
+                <td>Amit Patel</td>
+                <td>Human Resources</td>
+                <td>HR Executive</td>
+                <td><span class="tag tag-leave">On Leave</span></td>
+                <td>
+                  <button type="button" class="btn-sm" aria-label="Edit Amit Patel">Edit</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <!-- Add Employee Modal Dialog -->
+  <dialog id="employeeModal" aria-labelledby="formTitle" aria-modal="true">
+    <div class="modal-box">
+      <h3 id="formTitle">Add New Employee</h3>
+
+      <form method="dialog" id="addEmployeeForm">
+        <fieldset>
+          <legend>Personal Details</legend>
+          
+          <div class="input-group">
+            <label for="empName">Full Name</label>
+            <input type="text" id="empName" name="name" required placeholder="e.g. Priya Singh">
+          </div>
+
+          <div class="input-group">
+            <label for="empEmail">Work Email</label>
+            <input type="email" id="empEmail" name="email" required placeholder="priya@company.com">
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>Work Info</legend>
+
+          <div class="input-group">
+            <label for="empDept">Department</label>
+            <select id="empDept" name="dept" required>
+              <option value="">Select Department</option>
+              <option value="engineering">Engineering</option>
+              <option value="design">Design</option>
+              <option value="marketing">Marketing</option>
+              <option value="hr">Human Resources</option>
+            </select>
+          </div>
+
+          <div class="input-group">
+            <label for="empRole">Role / Title</label>
+            <input type="text" id="empRole" name="role" required placeholder="e.g. QA Engineer">
+          </div>
+        </fieldset>
+
+        <div class="form-buttons">
+          <button type="button" id="cancelBtn" class="btn-secondary">Cancel</button>
+          <button type="submit" class="btn-primary">Save Employee</button>
+        </div>
+      </form>
+    </div>
+  </dialog>
+
+  <!-- Footer -->
+  <footer class="app-footer">
+    <p>&copy; 2026 StaffSync Portal. Internal HR Dashboard.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
